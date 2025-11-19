@@ -88,11 +88,16 @@ router.post('/contact', async (req, res) => {
     `
   };
 
-  // Send both emails
-  await transporter.sendMail(notificationEmail);
-  await transporter.sendMail(replyEmail);
-
-  res.status(200).json({ message: 'Message sent successfully! Check your email for confirmation.' });
+  try {
+    // Send both emails
+    await transporter.sendMail(notificationEmail);
+    await transporter.sendMail(replyEmail);
+    
+    res.status(200).json({ message: 'Message sent successfully! Check your email for confirmation.' });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).json({ message: 'Failed to send message. Please try again.' });
+  }
 });
 
 // Get portfolio data
