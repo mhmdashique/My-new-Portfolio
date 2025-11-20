@@ -1,7 +1,9 @@
 import React from 'react';
-import { FaCode, FaServer, FaDatabase, FaTools, FaBrain } from 'react-icons/fa';
+import { FaCode, FaServer, FaDatabase, FaTools } from 'react-icons/fa';
 
 function Skills({ skills }) {
+  if (!skills) return null;
+
   const logoMap = {
     'HTML5': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
     'CSS3': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
@@ -71,7 +73,7 @@ function Skills({ skills }) {
     <section id="skills" className="skills">
       <div className="container">
         <h2 className="section-title">
-          <FaBrain className="section-icon" />
+          <FaCode className="section-icon" />
           Skills & Technologies
         </h2>
         <div className="skills-grid">
