@@ -182,47 +182,7 @@ router.get("/portfolio", (req, res) => {
         ],
       },
     ],
-    skills: {
-      frontend: [
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "React.js",
-        "Bootstrap",
-        "Tailwind CSS",
-        "Material-UI",
-        "Framer Motion",
-      ],
-      backend: [
-        "Node.js",
-        "Express.js",
-        "RESTful APIs",
-        "JWT Authentication",
-        "Middleware",
-        "Server-side Rendering",
-        "Python",
-      ],
-      database: [
-        "MongoDB",
-        "Mongoose",
-        "MySQL",
-        "PostgreSQL",
-        "Database Design",
-        "Aggregation",
-      ],
-      tools: [
-        "Git",
-        "GitHub",
-        "VS Code",
-        "Postman",
-        "npm",
-        "Webpack",
-        "Babel",
-        "ESLint",
-        "Figma",
-        "MS Office",
-      ],
-    },
+
     projects: [
       {
         title: "Blog Management Website [Frontend]",

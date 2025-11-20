@@ -1,8 +1,6 @@
 import { FaCode, FaServer, FaDatabase, FaTools } from "react-icons/fa";
 
-function Skills({ skills }) {
-  if (!skills) return null;
-
+function Skills() {
   const logoMap = {
     HTML5:
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
@@ -17,26 +15,16 @@ function Skills({ skills }) {
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
     "Material-UI":
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg",
-    "Framer Motion": "https://img.icons8.com/color/48/framer.png",
     "Node.js":
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
     "Express.js":
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
     "RESTful APIs": "https://img.icons8.com/color/48/api-settings.png",
-    "JWT Authentication": "https://img.icons8.com/color/48/json-web-token.png",
-    Middleware: "https://img.icons8.com/color/48/server.png",
-    "Server-side Rendering": "https://img.icons8.com/color/48/server.png",
     Python:
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
     MongoDB:
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
     Mongoose: "https://img.icons8.com/color/48/mongoose.png",
-    MySQL:
-      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-    PostgreSQL:
-      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-    "Database Design": "https://img.icons8.com/color/48/database.png",
-    Aggregation: "https://img.icons8.com/color/48/database.png",
     Git: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
     GitHub:
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
@@ -44,15 +32,16 @@ function Skills({ skills }) {
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
     Postman: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
     npm: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg",
-    Webpack:
-      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg",
-    Babel:
-      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/babel/babel-original.svg",
-    ESLint:
-      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/eslint/eslint-original.svg",
     Figma:
       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
     "MS Office": "https://img.icons8.com/color/48/microsoft-office-2019.png",
+  };
+
+  const skills = {
+    frontend: ["HTML5", "CSS3", "JavaScript", "React.js", "Bootstrap", "Tailwind CSS", "Material-UI"],
+    backend: ["Node.js", "Express.js", "RESTful APIs", "Python"],
+    database: ["MongoDB", "Mongoose"],
+    tools: ["Git", "GitHub", "VS Code", "Postman", "npm", "Figma", "MS Office"]
   };
 
   const skillCategories = [

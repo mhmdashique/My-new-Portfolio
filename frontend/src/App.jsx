@@ -40,7 +40,7 @@ function App() {
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <Hero personalInfo={portfolioData.personalInfo} />
       <About about={portfolioData.about} education={portfolioData.education} />
-      <Skills skills={portfolioData.skills} />
+      <Skills />
       <Projects projects={portfolioData.projects} />
       <Experience experience={portfolioData.experience} />
       <Contact personalInfo={portfolioData.personalInfo} />
