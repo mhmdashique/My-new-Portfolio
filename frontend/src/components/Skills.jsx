@@ -1,5 +1,3 @@
-import React from "react";
-import { myFunc } from "./utils.js";
 import { FaCode, FaServer, FaDatabase, FaTools } from "react-icons/fa";
 
 function Skills({ skills }) {

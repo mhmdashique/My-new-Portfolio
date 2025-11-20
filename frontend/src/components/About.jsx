@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaGraduationCap, FaUser } from 'react-icons/fa';
 
 const About = ({ about, education }) => {
