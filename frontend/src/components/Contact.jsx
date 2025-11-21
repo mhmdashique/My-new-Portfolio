@@ -21,16 +21,19 @@ const Contact = ({ personalInfo }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form processing
-    setTimeout(() => {
-      setSubmitMessage('✅ Thank you for your message! I will get back to you soon. You can also reach me directly at ashiqueoffl7@gmail.com or +91 79028 57903.');
+
+    try {
+      const response = await axios.post('/api/contact', formData);
+      setSubmitMessage('✅ ' + response.data.message);
       setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      setSubmitMessage('❌ Failed to send message. Please try again.');
+      console.error('Error sending message:', error);
+    } finally {
       setIsSubmitting(false);
-      
       // Clear message after 10 seconds
       setTimeout(() => setSubmitMessage(''), 10000);
-    }, 2000);
+    }
   };
 
   return (
