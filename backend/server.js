@@ -149,28 +149,6 @@ router.get("/portfolio", (req, res) => {
     },
     about:
       "I'm a passionate Computer Science graduate from 2023, eager to make my mark in the software development industry. Based in Thiruvananthapuram, India, I recently completed an intensive MERN Stack internship at Srishti Innovative (2024-2025), where I gained hands-on experience building real-world applications. My journey in programming started during my B.Tech studies, and I've been dedicated to mastering modern web technologies. I believe in learning by doing, which is why I've built multiple projects using the MERN stack to solidify my understanding and showcase my capabilities. I'm excited about the opportunity to contribute to innovative projects and grow as a developer in a collaborative, growth-focused environment.",
-    education: [
-      {
-        degree: "MERN STACK DEVELOPER",
-        institution: "Srishti Innovative , Trivandrum",
-        period: "2024-2025",
-      },
-      {
-        degree: "B.Tech in Computer Science and Engineering",
-        institution: "Sarabhai Institute of Science and Technology, KTU",
-        period: "2019-2023",
-      },
-      {
-        degree: "Higher Secondary Education",
-        institution: "Govt. VHSS Paruthippally",
-        period: "2017-2019",
-      },
-      {
-        degree: "Secondary Education",
-        institution: "Govt. VHSS Paruthippally",
-        period: "2016-2017",
-      },
-    ],
     experience: [
       {
         title: "MERN Stack Developer Intern",

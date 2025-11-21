@@ -59,7 +59,7 @@ function App() {
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <Hero personalInfo={portfolioData.personalInfo} />
       <About about={portfolioData.about} />
-      <Education education={portfolioData.education} />
+      <Education />
       <Skills />
       <Projects projects={portfolioData.projects} />
       <Experience experience={portfolioData.experience} />
