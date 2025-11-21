@@ -2800,3 +2800,55 @@ section {
     color: white;
   }
 }
+
+/* Work in Progress Section */
+.work-in-progress {
+ margin-top: 3rem;
+ text-align: center;
+}
+
+.wip-card {
+  background: var(--bg-primary);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--warning-color);
+  display: inline-block;
+  max-width: 500px;
+  animation: bounce-in 0.8s ease-out;
+  text-align: center;
+}
+
+.wip-icon {
+  font-size: 4rem;
+  color: var(--warning-color);
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  animation: bounce-in 1s ease-out;
+}
+
+.wip-card h4 {
+ color: var(--warning-color);
+ margin-bottom: 1rem;
+ font-size: 1.5rem;
+ font-weight: 700;
+}
+
+.wip-card p {
+ color: var(--text-secondary);
+ margin-bottom: 1rem;
+ line-height: 1.6;
+}
+
+.wip-note {
+ color: var(--text-muted);
+ font-style: italic;
+ font-size: 0.95rem;
+}
+
+.dark .wip-card {
+ background: var(--bg-primary);
+ border-color: var(--warning-color);
+}

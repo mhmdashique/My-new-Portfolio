@@ -34,6 +34,7 @@ const Hero = ({ personalInfo }) => {
             <a href="#projects" className="btn btn-secondary">View Projects</a>
           </div>
         </div>
+        
       </div>
     </section>
   );

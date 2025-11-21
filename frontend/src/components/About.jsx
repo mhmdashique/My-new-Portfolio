@@ -1,4 +1,4 @@
-import { FaUser } from 'react-icons/fa';
+import { FaUser, FaTools } from "react-icons/fa";
 
 const About = ({ about }) => {
   return (
@@ -11,9 +11,24 @@ const About = ({ about }) => {
         <div className="about-content">
           <div className="about-card">
             <h3>My Story</h3>
-            <p>I'm a passionate <strong>Computer Science graduate</strong> from 2023, eager to make my mark in the software development industry. Based in <strong>Trivandrum, India</strong>, I recently completed an intensive MERN Stack internship at Srishti Innovative (2024-2025).</p>
-            <p>My journey in programming started during my B.Tech studies, and I've been dedicated to mastering modern web technologies. I believe in learning by doing, which is why I've built multiple projects using the MERN stack.</p>
-            <p>I'm excited about the opportunity to contribute to innovative projects and grow as a developer in a collaborative, growth-focused environment.</p>
+            <p>
+              I'm a passionate <strong>Computer Science graduate</strong> from
+              2023, eager to make my mark in the software development industry.
+              Based in <strong>Trivandrum, India</strong>, I recently completed
+              an intensive MERN Stack internship at Srishti Innovative
+              (2024-2025).
+            </p>
+            <p>
+              My journey in programming started during my B.Tech studies, and
+              I've been dedicated to mastering modern web technologies. I
+              believe in learning by doing, which is why I've built multiple
+              projects using the MERN stack.
+            </p>
+            <p>
+              I'm excited about the opportunity to contribute to innovative
+              projects and grow as a developer in a collaborative,
+              growth-focused environment.
+            </p>
             <div className="stats-grid">
               <div className="stat-item">
                 <span className="stat-number">2+</span>
@@ -28,9 +43,31 @@ const About = ({ about }) => {
                 <span className="stat-label">Projects</span>
               </div>
             </div>
+
             <div className="cv-buttons">
-              <a href="/cv/Mohammed_Ashique_CV.pdf" download className="btn btn-primary">Download CV</a>
-              <a href="/cv/Mohammed_Ashique_CV.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">Preview CV</a>
+              <a
+                href="/cv/Mohammed_Ashique_CV.pdf"
+                download
+                className="btn btn-primary"
+              >
+                Download CV
+              </a>
+              <a
+                href="/cv/Mohammed_Ashique_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary"
+              >
+                Preview CV
+              </a>
+            </div>
+            <div className="work-in-progress">
+              <div className="wip-card">
+                <FaTools className="wip-icon" />
+                <h4>Portfolio Under Construction</h4>
+                <p>I'm continuously working to enhance this portfolio with more details, projects, and features.</p>
+                <p className="wip-note">More exciting content will be added soon. Thank you for your patience!</p>
+              </div>
             </div>
           </div>
         </div>

@@ -145,7 +145,8 @@ router.post("/contact", async (req, res) => {
       message: "Message sent successfully! Check your email for confirmation.",
     });
   } catch (error) {
-    console.error("Error sending email:", error);
+    console.error("Error sending email:", error.message);
+    console.error("Full error:", error);
     res
       .status(500)
       .json({ message: "Failed to send message. Please try again." });
