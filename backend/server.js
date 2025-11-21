@@ -43,6 +43,7 @@ app.use((req, res, next) => {
 
 // Contact form endpoint
 router.post("/contact", async (req, res) => {
+  console.log("Contact form request received:", req.body);
   const { name, email, message } = req.body;
 
   // Create transporter (using Gmail)

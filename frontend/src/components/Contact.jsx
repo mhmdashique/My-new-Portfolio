@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
-import axios from 'axios';
+import emailjs from '@emailjs/browser';
 
 const Contact = ({ personalInfo }) => {
   const [formData, setFormData] = useState({
@@ -23,8 +23,31 @@ const Contact = ({ personalInfo }) => {
     setIsSubmitting(true);
 
     try {
-      const response = await axios.post('/api/contact', formData);
-      setSubmitMessage('✅ ' + response.data.message);
+      // Send notification email to owner
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+        'NOTIFICATION_TEMPLATE_ID', // Replace with your notification template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+      );
+
+      // Send reply email to sender
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+        'REPLY_TEMPLATE_ID', // Replace with your reply template ID
+        {
+          to_name: formData.name,
+          to_email: formData.email,
+          message: formData.message,
+        },
+        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+      );
+
+      setSubmitMessage('✅ Thank you for your message! I will get back to you soon. You can also reach me directly at ashiqueoffl7@gmail.com or +91 79028 57903.');
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       setSubmitMessage('❌ Failed to send message. Please try again.');
