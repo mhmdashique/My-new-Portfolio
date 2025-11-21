@@ -45,9 +45,11 @@ app.use((req, res, next) => {
 router.post("/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
-  // Create transporter (using Gmail as example)
+  // Create transporter (using Gmail)
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false, // true for 465, false for other ports
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
@@ -120,9 +122,13 @@ router.post("/contact", async (req, res) => {
   };
 
   try {
-    // Send both emails
+    console.log("Sending notification email to:", process.env.EMAIL_USER);
     await transporter.sendMail(notificationEmail);
+    console.log("Notification email sent");
+
+    console.log("Sending reply email to:", email);
     await transporter.sendMail(replyEmail);
+    console.log("Reply email sent");
 
     res.status(200).json({
       message: "Message sent successfully! Check your email for confirmation.",
