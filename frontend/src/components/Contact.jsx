@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
-import emailjs from 'emailjs-com';
+import axios from 'axios';
 
 const Contact = ({ personalInfo }) => {
   const [formData, setFormData] = useState({
@@ -21,37 +21,15 @@ const Contact = ({ personalInfo }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+    
     try {
-      // Send notification email to owner
-      await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'NOTIFICATION_TEMPLATE_ID', // Replace with your notification template ID
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-        },
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
-      );
-
-      // Send reply email to sender
-      await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'REPLY_TEMPLATE_ID', // Replace with your reply template ID
-        {
-          to_name: formData.name,
-          to_email: formData.email,
-          message: formData.message,
-        },
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
-      );
-
-      setSubmitMessage('✅ Thank you for your message! I will get back to you soon. You can also reach me directly at ashiqueoffl7@gmail.com or +91 79028 57903.');
+      const apiUrl = import.meta.env.PROD ? '/api/contact' : 'http://localhost:5000/api/contact';
+      const response = await axios.post(apiUrl, formData);
+      setSubmitMessage('✅ ' + response.data.message + ' You will receive a confirmation email shortly.');
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
-      setSubmitMessage('❌ Failed to send message. Please try again.');
       console.error('Error sending message:', error);
+      setSubmitMessage('❌ Failed to send message. Please try again or contact me directly at ashiqueoffl7@gmail.com or +91 79028 57903.');
     } finally {
       setIsSubmitting(false);
       // Clear message after 10 seconds
