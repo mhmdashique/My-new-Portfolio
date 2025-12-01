@@ -3,19 +3,19 @@ import { FaGraduationCap, FaUniversity, FaSchool, FaCertificate } from 'react-ic
 const Education = () => {
   const education = [
     {
-      degree: "MERN STACK DEVELOPER",
-      institution: "Srishti Innovative, Trivandrum",
-      period: "2024-2025",
-    },
-    {
       degree: "B.Tech in Computer Science and Engineering",
       institution: "Sarabhai Institute of Science and Technology, KTU",
       period: "2019-2023",
     },
     {
-      degree: "Secondary & Higher Secondary Education",
+      degree: "Higher Secondary Education",
       institution: "Govt. VHSS Paruthippally",
       period: "2016-2019",
+    },
+    {
+      degree: "Secondary Education",
+      institution: "Govt. VHSS Paruthippally",
+      period: "2016-2017",
     }
   ];
 
