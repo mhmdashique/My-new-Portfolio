@@ -1,42 +1,58 @@
-import { useState } from 'react';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
-import axios from 'axios';
+import { useState } from "react";
+import {
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaPaperPlane,
+} from "react-icons/fa";
+import axios from "axios";
 
 const Contact = ({ personalInfo }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
+  const [submitMessage, setSubmitMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
-      const apiUrl = import.meta.env.PROD ? '/api/contact' : 'http://localhost:5000/api/contact';
+      const apiUrl = import.meta.env.PROD
+        ? "/.netlify/functions/contact"
+        : "http://localhost:5000/api/contact";
       await axios.post(apiUrl, formData, { timeout: 10000 });
-      setSubmitMessage('✅ Message sent successfully! You will receive a confirmation email shortly.');
-      setFormData({ name: '', email: '', message: '' });
+      setSubmitMessage(
+        "✅ Message sent successfully! You will receive a confirmation email shortly."
+      );
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      if (error.code === 'ECONNREFUSED' || error.message.includes('Network Error')) {
-        setSubmitMessage('✅ Thank you for your message! I have received it and will get back to you within 24 hours. You can also reach me at ashiqueoffl7@gmail.com or +91 79028 57903.');
-        setFormData({ name: '', email: '', message: '' });
+      if (
+        error.code === "ECONNREFUSED" ||
+        error.message.includes("Network Error")
+      ) {
+        setSubmitMessage(
+          "✅ Thank you for your message! I have received it and will get back to you within 24 hours. You can also reach me at ashiqueoffl7@gmail.com or +91 79028 57903."
+        );
+        setFormData({ name: "", email: "", message: "" });
       } else {
-        setSubmitMessage('❌ Failed to send message. Please contact me directly at ashiqueoffl7@gmail.com or +91 79028 57903.');
+        setSubmitMessage(
+          "❌ Failed to send message. Please contact me directly at ashiqueoffl7@gmail.com or +91 79028 57903."
+        );
       }
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitMessage(''), 12000);
+      setTimeout(() => setSubmitMessage(""), 12000);
     }
   };
 
@@ -51,7 +67,10 @@ const Contact = ({ personalInfo }) => {
           <div className="contact-info">
             <div className="contact-card">
               <h3>Let's Connect</h3>
-              <p>I'm always open to discussing new opportunities and interesting projects.</p>
+              <p>
+                I'm always open to discussing new opportunities and interesting
+                projects.
+              </p>
               <div className="contact-details">
                 <div className="contact-item email-item">
                   <div className="contact-icon">
@@ -77,7 +96,9 @@ const Contact = ({ personalInfo }) => {
                   </div>
                   <div className="contact-text">
                     <span className="contact-label">Location</span>
-                    <span className="contact-value">{personalInfo.location}</span>
+                    <span className="contact-value">
+                      {personalInfo.location}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -123,10 +144,22 @@ const Contact = ({ personalInfo }) => {
                     required
                   ></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary submit-btn" disabled={isSubmitting}>
-                  {isSubmitting ? 'Sending...' : <><FaPaperPlane /> Send Message</>}
+                <button
+                  type="submit"
+                  className="btn btn-primary submit-btn"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    "Sending..."
+                  ) : (
+                    <>
+                      <FaPaperPlane /> Send Message
+                    </>
+                  )}
                 </button>
-                {submitMessage && <p className="submit-message">{submitMessage}</p>}
+                {submitMessage && (
+                  <p className="submit-message">{submitMessage}</p>
+                )}
               </form>
             </div>
           </div>
